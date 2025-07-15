@@ -179,7 +179,7 @@ const Home = () => {
   return (
   <div
       id="Home"
-      className="min-h-screen bg-black overflow-hidden pt-24 pl-20 "
+      className="min-h-screen bg-black overflow-hidden pt-24 px-4 sm:px-8 lg:pl-20"
    >
 
 
@@ -189,7 +189,7 @@ const Home = () => {
       }`}
     >
       {/* 👇 Main wrapper with explicit left padding */}
-      <div className="w-full min-h-screen pl-20 pr-4">
+      <div className="w-full min-h-screen px-4 sm:px-8 lg:pl-20 lg:pr-4">
 
         <div className="flex flex-col lg:flex-row items-center justify-start h-screen md:justify-between gap-0 sm:gap-12 lg:gap-20">
           {/* Left Column */}
