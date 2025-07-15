@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback, memo } from "react";
+
+
 import {
   Github,
   Linkedin,
@@ -250,7 +252,7 @@ const Home = () => {
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
-                <CTAButton href="#Portofolio" text="Projects" icon={ExternalLink} />
+                <CTAButton href="#Portfolio" text="Projects" icon={ExternalLink} />
                 <CTAButton href="#Contact" text="Contact" icon={Mail} />
               </div>
 

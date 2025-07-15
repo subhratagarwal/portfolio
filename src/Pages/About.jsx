@@ -1,4 +1,6 @@
 import React, { useEffect, memo, useMemo } from "react";
+import projects from "../data/projects";
+
 import {
   FileText,
   Code,
@@ -106,17 +108,22 @@ const StatCard = memo(
           >
             {label}
           </p>
-          <div className="flex items-center justify-between">
-            <p
-              className="text-xs text-gray-400"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-anchor-placement="top-bottom"
-            >
-              {description}
-            </p>
-            <ArrowUpRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-          </div>
+         <div className="flex items-center justify-between">
+                  <p
+                    className="text-xs text-gray-400"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-anchor-placement="top-bottom"
+                  >
+                    {description}
+                  </p>
+
+                  {/* ✅ clickable arrow */}
+                  <a href="#Portfolio">
+                    <ArrowUpRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors cursor-pointer" />
+                  </a>
+             </div>
+
         </div>
       </div>
     </div>
@@ -126,27 +133,23 @@ const StatCard = memo(
 const AboutPage = () => {
   // Memoized calculations
   const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
-    const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
-    const storedCertificates = JSON.parse(
-      localStorage.getItem("certificates") || "[]"
-    );
+  const startDate = new Date("2021-11-06");
+  const today = new Date();
+  const experience =
+    today.getFullYear() -
+    startDate.getFullYear() -
+    (today <
+    new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate())
+      ? 1
+      : 0);
 
-    const startDate = new Date("2021-11-06");
-    const today = new Date();
-    const experience =
-      today.getFullYear() -
-      startDate.getFullYear() -
-      (today <
-      new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate())
-        ? 1
-        : 0);
+  return {
+    totalProjects: projects.length, // ✅ use imported projects
+    totalCertificates: 0,           // ✅ or fetch from somewhere else
+    YearExperience: experience,
+  };
+ }, []);
 
-    return {
-      totalProjects: storedProjects.length,
-      totalCertificates: storedCertificates.length,
-      YearExperience: experience,
-    };
-  }, []);
 
   // Optimized AOS initialization
   useEffect(() => {
@@ -266,7 +269,7 @@ const AboutPage = () => {
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
                 </button>
               </a>
-              <a href="#Portofolio" className="w-full lg:w-auto">
+               <a href="#Portfolio" className="w-full lg:w-auto">
                 <button
                   data-aos="fade-up"
                   data-aos-duration="1000"
@@ -298,13 +301,20 @@ const AboutPage = () => {
 
         </div>
 
-        <a href="#Portofolio">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
-            {statsData.map((stat) => (
-              <StatCard key={stat.label} {...stat} />
-            ))}
-          </div>
-        </a>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                            {statsData.map((stat) => (
+                              <a
+                                key={stat.label}
+                                href="#Portfolio"
+                                className="block transition-transform duration-300 hover:scale-105"
+                                style={{ textDecoration: "none" }}
+                              >
+                                <StatCard {...stat} />
+                              </a>
+                               ))}
+                       </div>
+
+
       </div>
 
       <style jsx>{`
