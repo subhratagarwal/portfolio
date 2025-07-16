@@ -235,16 +235,19 @@ const Home = () => {
               </div>
 
               {/* Project Count Card */}
-              <div
-                className="mt-6 mb-6 flex flex-col items-start"
-                data-aos="fade-up"
-                data-aos-delay="1300"
-              >
-                <div className="rounded-xl bg-gradient-to-r from-[#6366f1]/30 to-[#a855f7]/30 p-6 shadow-lg flex flex-col items-center">
-                  <span className="text-4xl font-bold text-white">{projects.length}</span>
-                  <span className="text-base font-medium text-gray-300 mt-2">TOTAL PROJECTS</span>
-                </div>
-              </div>
+                                <div
+                                  className="mt-6 mb-6 flex justify-center lg:justify-start"
+                                  data-aos="fade-up"
+                                  data-aos-delay="1300"
+                                >
+                                      <div className="rounded-xl bg-gradient-to-r from-[#6366f1]/30 to-[#a855f7]/30 p-6 shadow-lg flex flex-col items-center">
+                                        <span className="text-4xl font-bold text-white">{projects.length}</span>
+                                        <span className="text-base font-medium text-gray-300 mt-2">
+                                          TOTAL PROJECTS
+                                        </span>
+                                    </div>
+                             </div>
+
 
               {/* CTA Buttons */}
               <div
