@@ -286,14 +286,17 @@ const AboutPage = () => {
 
                         
 
-                     <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden ml-12">
-                          <img
-                            src="/assets/me4.jpg"
-                            alt="Profile"
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        </div>
+                     <div className="w-full flex justify-center items-center mt-6">
+                          <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden">
+                            <img
+                              src="/assets/me4.jpg"
+                              alt="Profile"
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                      </div>
+
 
 
                       
